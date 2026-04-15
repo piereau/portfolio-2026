@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+
 const instantCityImages = Object.values(
 	import.meta.glob<{ default: ImageMetadata }>('/src/assets/instant-city/*.png', { eager: true })
 ).map((m) => m.default);
@@ -33,7 +35,7 @@ const projects = [
 		img_class: '',
 	},
 	{
-		title: 'Winter Olympics Companion',
+		title: 'Olympic Companion',
 		description: 'Vivre les Jeux Olympiques, c’est vibrer à chaque instant — encore faut-il ne rien manquer. Ce prototype d\'application companion a été pensée pour offrir une expérience immersive et en temps réel, directement dans la poche des utilisateurs.',
 		tags: ['UX/UI', 'Prototype Figma'],
 		images: joCompanionImages,
@@ -51,6 +53,7 @@ const projects = [
 		description: 'Désherber un vignoble ne devrait pas être une tâche répétitive. Ce robot tondeuse autonome explore et cartographie son environnement afin de tondre de manière intelligente et autonome. Conçu comme un projet d’ingénierie mêlant robotique, capteurs et algorithmes de navigation.',
 		tags: ['Robotique', 'ROS2', 'Computer Vision', 'Embedded Systems'],
 		images: robotMowerImages,
+		video: 'herbobot-demo.mp4',
 		bg: 'bg-sky-200',
 		bg_fill: '#bae6fd',
 		wave_stroke: '#0284c7',
@@ -117,6 +120,18 @@ const projects = [
 						/>
 					</div>
 				))}
+				{project.video && (
+					<div class={`shrink-0 h-screen flex items-center justify-center mx-8 md:mx-16 ${project.img_wrapper_class}`}>
+						<video
+							src={`${base}${project.video}`}
+							autoplay
+							muted
+							loop
+							playsinline
+							class={`h-[85vh] w-auto max-w-[80vw] object-contain rounded-2xl ${project.img_class}`}
+						/>
+					</div>
+				)}
 			</div>
 		</div>
 	</section>
