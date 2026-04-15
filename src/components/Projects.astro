@@ -51,7 +51,7 @@ const projects = [
 	{
 		title: 'Herbobot',
 		description: 'Désherber un vignoble ne devrait pas être une tâche répétitive. Ce robot tondeuse autonome explore et cartographie son environnement afin de tondre de manière intelligente et autonome. Conçu comme un projet d’ingénierie mêlant robotique, capteurs et algorithmes de navigation.',
-		tags: ['Robotique', 'ROS2', 'Computer Vision', 'Embedded Systems'],
+		tags: ['Robotique', 'ROS2', 'Computer Vision', 'IoT', 'Embedded Systems'],
 		images: robotMowerImages,
 		video: 'herbobot-demo.mp4',
 		bg: 'bg-sky-200',
@@ -75,6 +75,52 @@ const projects = [
 		desc_color: 'text-violet-200',
 		tag_color: 'text-violet-200 bg-violet-900/50 border border-violet-200',
 		img_wrapper_class: 'drop-shadow-[0_8px_40px_rgba(0,0,0,0.35)]',
+		img_class: '',
+	},
+	{
+		title: 'Fidjoo',
+		description:
+			'Mini-jeux mobiles réalisés pour l\'application Fidjoo permettant à l\'utilisateur de se divertir pendant la génération de son histoire personnalisée.',
+		tags: ['React Native', 'Mobile game'],
+		images: [],
+		videos: ['fidjoo-attrape.mp4', 'fidjoo-volant.mp4'],
+		bg: 'bg-amber-50',
+		bg_fill: '#fffbeb',
+		wave_stroke: '#f59e0b',
+		title_color: 'text-amber-950',
+		desc_color: 'text-amber-800',
+		tag_color: 'text-amber-900 bg-amber-200/80 border border-amber-400',
+		img_wrapper_class: 'drop-shadow-[0_8px_40px_rgba(0,0,0,0.2)]',
+		img_class: '',
+	},
+	{
+		title: 'Dashboard Météo',
+		description: 'Ce dashboard interactif permet d\'explorer une base de données de capteurs météorologiques (température, humidité, qualité de l\'air).',
+		tags: ['react', 'MongoDB', 'IoT', 'data visualization'],
+		images: [],
+		video: 'sensor-dashboard-demo.mp4',
+		bg: 'bg-zinc-100',
+		bg_fill: '#f4f4f5',
+		wave_stroke: '#71717a',
+		title_color: 'text-zinc-900',
+		desc_color: 'text-zinc-600',
+		tag_color: 'text-zinc-800 bg-zinc-200 border border-zinc-400',
+		img_wrapper_class: 'drop-shadow-[0_8px_40px_rgba(0,0,0,0.35)]',
+		img_class: '',
+	},
+	{
+		title: 'Habille-moi VR',
+		description: 'Expérience VR amusante permettant de confectionner des tenues.',
+		tags: ['VR', 'Unity', 'Meta Quest 3S'],
+		images: [],
+		video: 'habille-moi-vr-demo.mp4',
+		bg: 'bg-fuchsia-50',
+		bg_fill: '#fdf4ff',
+		wave_stroke: '#c026d3',
+		title_color: 'text-fuchsia-950',
+		desc_color: 'text-fuchsia-800',
+		tag_color: 'text-fuchsia-900 bg-fuchsia-200/80 border border-fuchsia-400',
+		img_wrapper_class: 'drop-shadow-[0_8px_40px_rgba(0,0,0,0.15)]',
 		img_class: '',
 	},
 ];
@@ -120,18 +166,18 @@ const projects = [
 						/>
 					</div>
 				))}
-				{project.video && (
-					<div class={`shrink-0 h-screen flex items-center justify-center mx-8 md:mx-16 ${project.img_wrapper_class}`}>
+				{(project.videos ?? (project.video ? [project.video] : [])).map((src, vi) => (
+					<div class={`shrink-0 h-screen flex items-center justify-center mx-8 md:mx-16 drop-shadow-[0_8px_40px_rgba(0,0,0,0.35)]`}>
 						<video
-							src={`${base}${project.video}`}
+							src={`${base}${src}`}
 							autoplay
 							muted
 							loop
 							playsinline
-							class={`h-[85vh] w-auto max-w-[80vw] object-contain rounded-2xl ${project.img_class}`}
+							class="h-[85vh] w-auto max-w-[80vw] rounded-2xl"
 						/>
 					</div>
-				)}
+				))}
 			</div>
 		</div>
 	</section>
