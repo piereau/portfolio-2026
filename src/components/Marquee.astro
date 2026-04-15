@@ -1,0 +1,81 @@
+---
+import { Image } from 'astro:assets';
+
+import kicadLogo from '../assets/logos/KiCad.svg';
+import abletonLogo from '../assets/logos/ableton live 1.png';
+import nodejsLogo from '../assets/logos/nodejs.svg';
+import ampersandLogo from '../assets/logos/&.png';
+
+import awsLogo from '../assets/logos/aws-2.svg';
+import dockerLogo from '../assets/logos/docker-4.svg';
+import figmaLogo from '../assets/logos/figma-icon.svg';
+import gitLogo from '../assets/logos/git-icon.svg';
+import mysqlLogo from '../assets/logos/mysql-logo-pure.svg';
+import pythonLogo from '../assets/logos/python-5.svg';
+import raspberryLogo from '../assets/logos/raspberry-pi.svg';
+import reactNativeLogo from '../assets/logos/react-native-1.svg';
+import unityLogo from '../assets/logos/unity-69.svg';
+
+const skills = [
+	{ name: 'KiCad', logo: kicadLogo, outline: 'outline-blue-800' },
+	{ name: 'Python', logo: pythonLogo, outline: 'outline-amber-300' },
+	{ name: 'Ableton', logo: abletonLogo, outline: 'outline-neutral-800' },
+	{ name: 'React Native', logo: reactNativeLogo, outline: 'outline-cyan-400' },
+	{ name: 'AWS', logo: awsLogo, outline: 'outline-amber-500' },
+	{ name: 'Raspberry Pi', logo: raspberryLogo, outline: 'outline-rose-700' },
+	{ name: 'Unity 3D', logo: unityLogo, outline: 'outline-gray-800' },
+	{ name: 'NodeJS', logo: nodejsLogo, outline: 'outline-lime-500' },
+	{ name: 'Figma', logo: figmaLogo, outline: 'outline-purple-500' },
+	{ name: 'MySQL', logo: mysqlLogo, outline: 'outline-sky-900' },
+	{ name: 'Docker', logo: dockerLogo, outline: 'outline-sky-500' },
+	{ name: 'Git', logo: gitLogo, outline: 'outline-red-500' },
+	{ name: 'more', logo: ampersandLogo, outline: 'outline-fuchsia-600' },
+];
+---
+
+<div class="w-full overflow-hidden py-12">
+	<p class="text-center font-[Space_Grotesk] text-sm uppercase tracking-[0.15em] text-neutral-400 mb-6">
+		Quelques-unes de mes compétences
+	</p>
+	<div class="marquee-wrapper relative">
+		<div class="marquee-track flex gap-4 md:gap-6 items-center">
+			{skills.map((skill) => (
+				<div class={`shrink-0 px-3 py-2 bg-white rounded-lg outline outline-1 outline-offset-[-1px] ${skill.outline} flex items-center gap-2`}>
+					<Image src={skill.logo} alt={skill.name} class="w-5 h-5 object-contain" width={60} height={60} densities={[2, 3]} />
+					<span class="text-black text-sm font-normal font-['Bricolage_Grotesque'] whitespace-nowrap">{skill.name}</span>
+				</div>
+			))}
+			{skills.map((skill) => (
+				<div class={`shrink-0 px-3 py-2 bg-white rounded-lg outline outline-1 outline-offset-[-1px] ${skill.outline} flex items-center gap-2`} aria-hidden="true">
+					<Image src={skill.logo} alt="" class="w-5 h-5 object-contain" width={60} height={60} densities={[2, 3]} />
+					<span class="text-black text-sm font-normal font-['Bricolage_Grotesque'] whitespace-nowrap">{skill.name}</span>
+				</div>
+			))}
+		</div>
+	</div>
+</div>
+
+<style>
+	.marquee-wrapper {
+		mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+		-webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+	}
+
+	.marquee-track {
+		animation: marquee 30s linear infinite;
+		width: max-content;
+	}
+
+	.marquee-track:hover {
+		animation-play-state: paused;
+	}
+
+	@keyframes marquee {
+		0% {
+			transform: translate3d(0, 0, 0);
+		}
+		100% {
+			transform: translate3d(-50%, 0, 0);
+		}
+	}
+</style>

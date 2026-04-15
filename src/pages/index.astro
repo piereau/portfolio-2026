@@ -1,11 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Marquee from '../components/Marquee.astro';
+import Projects from '../components/Projects.astro';
 ---
 
 <Layout>
-	<main class="min-h-screen flex flex-col items-center">
-		<h1 class="mt-24 text-center font-[Space_Grotesk] text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight text-neutral-900 leading-none">
-			Pierre-Olivier<br />ROUX-SAVELLI
+	<section class="flex flex-col items-center">
+		<h1 class="mt-20 text-left font-[Montaga] text-4xl md:text-6xl lg:text-8xl font-normal tracking-tight text-neutral-900 leading-none">
+			Pierre-Olivier  ROUX-SAVELLI
 		</h1>
-	</main>
+		<p class="mt-8 max-w-2xl font-[Montaga] text-lg md:text-xl text-neutral-600 leading-relaxed">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.
+		</p>
+		<Marquee />
+	</section>
+	<Projects />
 </Layout>
