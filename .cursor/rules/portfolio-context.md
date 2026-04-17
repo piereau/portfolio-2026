@@ -158,12 +158,7 @@ The tag palette thus acts as the "accent family" for the whole project: you see 
 - Videos live in `public/`; images live in `src/assets/` and are processed by Astro
 
 ## What's NOT done yet
-- Hero description is still lorem ipsum
-- No navigation/header
 - No footer/contact section
 - No "about" section
-- Welcome.astro is unused (leftover from starter, can be deleted)
-- `background.svg` and `astro.svg` in assets are unused leftovers
-- Montaga font is referenced in index.astro classes but may not be in the Google Fonts link yet
 - No mobile responsiveness testing done
 - No favicon customization
